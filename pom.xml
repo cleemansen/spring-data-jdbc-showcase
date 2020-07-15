@@ -24,30 +24,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jdbc</artifactId>
 		</dependency>
-
-		<!-- adding explicitly `spring-data-relational` is strange -->
-		<!-- without: runtime crashes b/c method in `spring-data-relational` is missed by `spring-data-jdbc` -->
-		<!-- hopefully we can remove it again in the future.. -->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.data</groupId>-->
-<!--			<artifactId>spring-data-jdbc</artifactId>-->
-<!--			<version>2.1.0-M1</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.boot</groupId>-->
-<!--			<artifactId>spring-boot-starter-jdbc</artifactId>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.data</groupId>-->
-<!--			<artifactId>spring-data-relational</artifactId>-->
-<!--			<version>2.1.0-M1</version>-->
-<!--		</dependency>-->
-<!--		<dependency>-->
-<!--			<groupId>org.springframework.data</groupId>-->
-<!--			<artifactId>spring-data-commons</artifactId>-->
-<!--			<version>2.4.0-M1</version>-->
-<!--		</dependency>-->
-		<!-- END spring-data-jdbc -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
