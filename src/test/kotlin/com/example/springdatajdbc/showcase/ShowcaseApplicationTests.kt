@@ -1,10 +1,13 @@
 package com.example.springdatajdbc.showcase
 
-import org.assertj.core.api.Assertions
+import com.example.springdatajdbc.showcase.model.Comment
+import com.example.springdatajdbc.showcase.model.Ticket
+import com.example.springdatajdbc.showcase.repository.TicketRepository
 import org.assertj.core.api.Assertions.*
 import org.junit.jupiter.api.Test
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
+import org.springframework.data.repository.findByIdOrNull
 
 @SpringBootTest
 class ShowcaseApplicationTests {
@@ -16,20 +19,24 @@ class ShowcaseApplicationTests {
 	}
 
 	@Test
-	fun saveTicketWithStatus_ValueShouldBeWrittenToDatabase() {
+	fun saveTicketWithComment() {
+		// prepare
+		val inserted = ticketRepository
+				.save(
+						Ticket(
+								title = "NPE",
+								comments = mutableSetOf(
+										Comment(content = "great!"),
+										Comment(content = "solved!")
+								)
+						)
+				)
+
 		// execute
-		val actual = ticketRepository.save(Ticket(title = "NPE", status = Ticket.TicketStatus.OPEN))
+		val actual = ticketRepository.findByIdOrNull(id = inserted.id!!)
 
 		// verify
-		assertThat(actual.id).isNotNull()
-	}
-	@Test
-	fun saveTicketWithDefaultStatus_NullValueShouldBeWrittenToDatabase() {
-		// execute
-		val actual = ticketRepository.save(Ticket(title = "NPE", status = Ticket.TicketStatus.UNKNOWN))
-
-		// verify
-		assertThat(actual.id).isNotNull()
+		assertThat(actual?.id).isNotNull()
 	}
 
 }

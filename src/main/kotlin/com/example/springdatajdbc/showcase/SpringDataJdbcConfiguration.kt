@@ -9,12 +9,4 @@ import org.springframework.data.jdbc.repository.config.EnableJdbcRepositories
 @EnableJdbcRepositories
 class SpringDataJdbcConfiguration : AbstractJdbcConfiguration() {
 
-    override fun jdbcCustomConversions(): JdbcCustomConversions {
-        return JdbcCustomConversions(
-                listOf(
-                        Ticket.TicketStatus.EnumReadingConverter(),
-                        Ticket.TicketStatus.EnumWritingConverter()
-                )
-        )
-    }
 }
