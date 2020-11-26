@@ -15,4 +15,23 @@ class ShowcaseApplicationTests {
 	fun contextLoads() {
 	}
 
+	@Test
+	fun `it should insert the one-to-one model`() {
+		// prepare
+		val ticket = Ticket(
+				title = "ticket side of one-to-one relationship",
+				status = Ticket.TicketStatus.OPEN,
+				project = Project(
+						title = "project side of one-to-one relationship"
+				)
+		)
+
+		// execute
+		val actual = ticketRepository.save(ticket)
+
+		// verify
+		assertThat(actual.id).isNotNull()
+		assertThat(actual.project!!.title).isEqualTo(ticket.project!!.title)
+	}
+
 }

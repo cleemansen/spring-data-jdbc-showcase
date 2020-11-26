@@ -9,7 +9,8 @@ data class Ticket(
         @Id var id: Long? = null,
         val title: String,
         val assigned: String? = null,
-        val status: TicketStatus = TicketStatus.UNKNOWN
+        val status: TicketStatus = TicketStatus.UNKNOWN,
+        val project: Project? = null /* one-to-one */
 ) {
     enum class TicketStatus(private val databaseValue: String?) {
         OPEN("oPeN"),
