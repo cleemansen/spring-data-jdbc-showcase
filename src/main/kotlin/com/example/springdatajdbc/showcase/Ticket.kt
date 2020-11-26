@@ -14,7 +14,7 @@ data class Ticket(
     enum class TicketStatus(private val databaseValue: String?) {
         OPEN("oPeN"),
         SOLVED("solVed"),
-        UNKNOWN(null);
+        UNKNOWN("unknown");
 
         @ReadingConverter
         class EnumReadingConverter : Converter<String, TicketStatus> {

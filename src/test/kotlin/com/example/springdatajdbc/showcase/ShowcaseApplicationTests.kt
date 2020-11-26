@@ -15,22 +15,4 @@ class ShowcaseApplicationTests {
 	fun contextLoads() {
 	}
 
-	@Test
-	fun saveTicketWithStatus_ValueShouldBeWrittenToDatabase() {
-		// execute
-		val actual = ticketRepository.save(Ticket(title = "NPE", status = Ticket.TicketStatus.OPEN))
-
-		// verify
-		assertThat(actual.id).isNotNull()
-	}
-
-	@Test
-	fun saveTicketWithDefaultStatus_NullValueShouldBeWrittenToDatabase() {
-		// execute
-		val actual = ticketRepository.save(Ticket(title = "NPE", status = Ticket.TicketStatus.UNKNOWN))
-
-		// verify
-		assertThat(actual.id).isNotNull()
-	}
-
 }
