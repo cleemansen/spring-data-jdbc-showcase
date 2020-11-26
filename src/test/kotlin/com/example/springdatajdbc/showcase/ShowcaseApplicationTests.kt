@@ -23,6 +23,7 @@ class ShowcaseApplicationTests {
 		// verify
 		assertThat(actual.id).isNotNull()
 	}
+
 	@Test
 	fun saveTicketWithDefaultStatus_NullValueShouldBeWrittenToDatabase() {
 		// execute
